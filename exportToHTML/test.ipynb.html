@@ -1,0 +1,388 @@
+<html>
+<head>
+<title>test.ipynb</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #5c6370; font-style: italic;}
+.s1 { color: #d55fde; font-style: italic;}
+.s2 { color: #bbbbbb;}
+.s3 { color: #89ca78;}
+.s4 { color: #d19a66;}
+.s5 { color: #2bbac5;}
+</style>
+</head>
+<body bgcolor="#282c34">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+test.ipynb</font>
+</center></td></tr></table>
+<pre><span class="s0">#%% 
+</span><span class="s1">import </span><span class="s2">pandas </span><span class="s1">as </span><span class="s2">pd</span>
+<span class="s1">import </span><span class="s2">numpy </span><span class="s1">as </span><span class="s2">np</span>
+<span class="s1">import </span><span class="s2">matplotlib.pyplot </span><span class="s1">as </span><span class="s2">plt</span>
+<span class="s1">import </span><span class="s2">matplotlib.patches </span><span class="s1">as </span><span class="s2">mpatches</span>
+<span class="s1">import </span><span class="s2">matplotlib </span><span class="s1">as </span><span class="s2">mpl</span>
+
+<span class="s0">#%% md 
+</span><span class="s2"># Resumen total desde los meses de marzo hasta septiembre 
+ 
+</span><span class="s0">#%% 
+# global int</span>
+<span class="s2">pd.options.display.float_format = </span><span class="s3">'{:.0f}'</span><span class="s2">.format</span>
+<span class="s0">#%% 
+</span><span class="s1">def </span><span class="s2">getValues(month):</span>
+    <span class="s2">d = pd.read_csv(</span><span class="s3">&quot;data-&quot; </span><span class="s2">+ month + </span><span class="s3">&quot;.csv&quot;</span><span class="s2">, index_col=</span><span class="s3">&quot;Name&quot;</span><span class="s2">)</span>
+    <span class="s2">d = d.apply(pd.to_numeric, errors=</span><span class="s3">'ignore'</span><span class="s2">).fillna(-</span><span class="s4">1</span><span class="s2">)</span>
+    <span class="s2">d = d.drop(columns=</span><span class="s3">&quot;Unnamed: 2&quot;</span><span class="s2">)</span>
+    <span class="s2">d[</span><span class="s3">&quot;Total&quot;</span><span class="s2">] = d.drop(</span><span class="s3">&quot;Partido&quot;</span><span class="s2">, axis=</span><span class="s4">1</span><span class="s2">).apply(np.sum, axis=</span><span class="s4">1</span><span class="s2">)</span>
+    <span class="s1">return </span><span class="s2">d</span>
+<span class="s0">#%% 
+</span><span class="s2">marzo = getValues(</span><span class="s3">&quot;3-2022&quot;</span><span class="s2">)</span>
+<span class="s2">abril = getValues(</span><span class="s3">&quot;4-2022&quot;</span><span class="s2">)</span>
+<span class="s2">mayo = getValues(</span><span class="s3">&quot;5-2022&quot;</span><span class="s2">)</span>
+<span class="s2">junio = getValues(</span><span class="s3">&quot;6-2022&quot;</span><span class="s2">)</span>
+<span class="s2">julio = getValues(</span><span class="s3">&quot;7-2022&quot;</span><span class="s2">)</span>
+<span class="s2">agosto = getValues(</span><span class="s3">&quot;8-2022&quot;</span><span class="s2">)</span>
+
+<span class="s1">def </span><span class="s2">returnDataWithoutPartido(xd):</span>
+    <span class="s2">xd[</span><span class="s3">&quot;Partido&quot;</span><span class="s2">] = pd.DataFrame(xd).mask(</span><span class="s1">lambda </span><span class="s2">col: col != </span><span class="s3">&quot;&quot;</span><span class="s2">, </span><span class="s3">&quot;&quot;</span><span class="s2">)[</span><span class="s3">&quot;Partido&quot;</span><span class="s2">]</span>
+    <span class="s1">return </span><span class="s2">xd</span>
+
+<span class="s0"># this dataframe contain all values acum for each period</span>
+<span class="s2">df = pd.DataFrame(marzo)</span>
+<span class="s2">df = df.add(returnDataWithoutPartido(abril), fill_value=</span><span class="s4">0</span><span class="s2">)</span>
+<span class="s2">df = df.add(returnDataWithoutPartido(mayo), fill_value=</span><span class="s4">0</span><span class="s2">)</span>
+<span class="s2">df = df.add(returnDataWithoutPartido(junio), fill_value=</span><span class="s4">0</span><span class="s2">)</span>
+<span class="s2">df = df.add(returnDataWithoutPartido(julio), fill_value=</span><span class="s4">0</span><span class="s2">)</span>
+<span class="s2">df = df.add(returnDataWithoutPartido(agosto), fill_value=</span><span class="s4">0</span><span class="s2">)</span>
+<span class="s2">promedio = df.drop(columns=</span><span class="s3">&quot;Partido&quot;</span><span class="s2">)</span>
+<span class="s2">promedio = promedio/</span><span class="s4">6</span>
+<span class="s2">promedio[</span><span class="s3">&quot;Partido&quot;</span><span class="s2">] = df[</span><span class="s3">&quot;Partido&quot;</span><span class="s2">]</span>
+<span class="s2">promedio.sum()[</span><span class="s3">&quot;Total&quot;</span><span class="s2">]</span>
+<span class="s0">#df.sum()[&quot;Total&quot;]</span>
+<span class="s0">#%% 
+#utils</span>
+<span class="s2">gradeColors = {</span>
+    <span class="s3">'COMUNES'</span><span class="s2">: </span><span class="s4">7</span><span class="s2">,</span>
+    <span class="s3">'DC'</span><span class="s2">: </span><span class="s4">7</span><span class="s2">,</span>
+    <span class="s3">'EVOP'</span><span class="s2">: </span><span class="s4">5</span><span class="s2">,</span>
+    <span class="s3">'FRVS'</span><span class="s2">: </span><span class="s4">5</span><span class="s2">,</span>
+    <span class="s3">'IND'</span><span class="s2">: </span><span class="s4">5</span><span class="s2">,</span>
+    <span class="s3">'LIBERAL'</span><span class="s2">: </span><span class="s4">4</span><span class="s2">,</span>
+    <span class="s3">'PC'</span><span class="s2">: </span><span class="s4">10</span><span class="s2">,</span>
+    <span class="s3">'PCC'</span><span class="s2">: </span><span class="s4">6</span><span class="s2">,</span>
+    <span class="s3">'PCS'</span><span class="s2">: </span><span class="s4">7</span><span class="s2">,</span>
+    <span class="s3">'PDG'</span><span class="s2">: </span><span class="s4">4</span><span class="s2">,</span>
+    <span class="s3">'PEV'</span><span class="s2">: </span><span class="s4">5</span><span class="s2">,</span>
+    <span class="s3">'PH'</span><span class="s2">: </span><span class="s4">6</span><span class="s2">,</span>
+    <span class="s3">'PPD'</span><span class="s2">: </span><span class="s4">6</span><span class="s2">,</span>
+    <span class="s3">'PR'</span><span class="s2">: </span><span class="s4">6</span><span class="s2">,</span>
+    <span class="s3">'PREP'</span><span class="s2">: </span><span class="s4">2</span><span class="s2">,</span>
+    <span class="s3">'PRI'</span><span class="s2">: </span><span class="s4">5</span><span class="s2">,</span>
+    <span class="s3">'PS'</span><span class="s2">: </span><span class="s4">7</span><span class="s2">,</span>
+    <span class="s3">'RD'</span><span class="s2">: </span><span class="s4">6</span><span class="s2">,</span>
+    <span class="s3">'RN'</span><span class="s2">: </span><span class="s4">5</span><span class="s2">,</span>
+    <span class="s3">'UDI'</span><span class="s2">: </span><span class="s4">1</span><span class="s2">,</span>
+<span class="s2">}</span>
+
+
+<span class="s1">def </span><span class="s2">colorFader(c1, c2, mix=</span><span class="s4">0</span><span class="s2">):  </span><span class="s0">#fade (linear interpolate) from color c1 (at mix=0) to c2 (mix=1)</span>
+    <span class="s2">c1 = np.array(mpl.colors.to_rgb(c1))</span>
+    <span class="s2">c2 = np.array(mpl.colors.to_rgb(c2))</span>
+    <span class="s1">return </span><span class="s2">mpl.colors.to_hex((</span><span class="s4">1 </span><span class="s2">- mix) * c1 + mix * c2)</span>
+
+
+<span class="s2">c1 = </span><span class="s3">'#03FFBA'  </span><span class="s0">#blue</span>
+<span class="s2">c2 = </span><span class="s3">'#FF0000'  </span><span class="s0">#red</span>
+
+
+<span class="s1">def </span><span class="s2">getColorToPartido(v):</span>
+    <span class="s1">return </span><span class="s2">colorFader(c1, c2, v / </span><span class="s4">10</span><span class="s2">)</span>
+
+
+<span class="s2">colors = {}</span>
+<span class="s2">handles = []</span>
+<span class="s1">for </span><span class="s2">i </span><span class="s1">in </span><span class="s2">gradeColors:</span>
+    <span class="s2">c = getColorToPartido(gradeColors[i])</span>
+    <span class="s2">colors[i] = c</span>
+    <span class="s2">handles.append(mpatches.Patch(color=c, label=i))</span>
+
+<span class="s2">colors</span>
+<span class="s0">#%% md 
+</span><span class="s2"># Los más gastadores 
+</span><span class="s0">#%% 
+</span><span class="s2">category = </span><span class="s3">&quot;Total&quot;</span>
+
+<span class="s2">analyze = promedio.sort_values(by=category, ascending=</span><span class="s1">False</span><span class="s2">).iloc[</span><span class="s4">0</span><span class="s2">:</span><span class="s4">25</span><span class="s2">]</span>
+<span class="s2">analyze = analyze.reset_index()</span>
+<span class="s2">color = analyze[</span><span class="s3">&quot;Partido&quot;</span><span class="s2">].map(colors).tolist()</span>
+
+<span class="s2">d = analyze.plot(x=</span><span class="s3">&quot;Name&quot;</span><span class="s2">, y=category, title=</span><span class="s3">&quot;Promerio gasto mensual 6 meses, más gastan &quot; </span><span class="s2">+ category, color=color, kind=</span><span class="s3">&quot;barh&quot;</span><span class="s2">,</span>
+                 <span class="s2">figsize=(</span><span class="s4">12</span><span class="s2">, </span><span class="s4">10</span><span class="s2">))</span>
+
+<span class="s2">plt.legend(handles=handles, loc=(</span><span class="s4">1.04</span><span class="s2">, </span><span class="s4">0</span><span class="s2">))</span>
+
+<span class="s0"># to number with format h</span>
+<span class="s2">con = d.containers[</span><span class="s4">0</span><span class="s2">]</span>
+<span class="s2">d.bar_label(con, fmt=</span><span class="s3">'%d'</span><span class="s2">, labels=[</span><span class="s3">f'</span><span class="s5">{</span><span class="s2">x</span><span class="s5">:</span><span class="s3">,.0f</span><span class="s5">}</span><span class="s3">' </span><span class="s1">for </span><span class="s2">x </span><span class="s1">in </span><span class="s2">con.datavalues])</span>
+<span class="s2">d.ticklabel_format(style=</span><span class="s3">'plain'</span><span class="s2">, axis=</span><span class="s3">&quot;x&quot;</span><span class="s2">)</span>
+<span class="s2">plt.show()</span>
+
+<span class="s0">#%% 
+</span><span class="s2">category = </span><span class="s3">&quot;Total&quot;</span>
+
+<span class="s2">analyze = promedio.sort_values(by=category, ascending=</span><span class="s1">True</span><span class="s2">).iloc[</span><span class="s4">0</span><span class="s2">:</span><span class="s4">25</span><span class="s2">]</span>
+<span class="s2">analyze = analyze.reset_index()</span>
+<span class="s2">color = analyze[</span><span class="s3">&quot;Partido&quot;</span><span class="s2">].map(colors).tolist()</span>
+
+<span class="s2">d = analyze.plot(x=</span><span class="s3">&quot;Name&quot;</span><span class="s2">, y=category, title=</span><span class="s3">&quot;Promerio gasto mensual 6 meses, menos gastan &quot; </span><span class="s2">+ category, color=color, kind=</span><span class="s3">&quot;barh&quot;</span><span class="s2">,</span>
+                 <span class="s2">figsize=(</span><span class="s4">12</span><span class="s2">, </span><span class="s4">10</span><span class="s2">))</span>
+
+<span class="s2">plt.legend(handles=handles, loc=(</span><span class="s4">1.04</span><span class="s2">, </span><span class="s4">0</span><span class="s2">))</span>
+
+<span class="s0"># to number with format h</span>
+<span class="s2">con = d.containers[</span><span class="s4">0</span><span class="s2">]</span>
+<span class="s2">d.bar_label(con, fmt=</span><span class="s3">'%d'</span><span class="s2">, labels=[</span><span class="s3">f'</span><span class="s5">{</span><span class="s2">x</span><span class="s5">:</span><span class="s3">,.0f</span><span class="s5">}</span><span class="s3">' </span><span class="s1">for </span><span class="s2">x </span><span class="s1">in </span><span class="s2">con.datavalues])</span>
+<span class="s2">d.ticklabel_format(style=</span><span class="s3">'plain'</span><span class="s2">, axis=</span><span class="s3">&quot;x&quot;</span><span class="s2">)</span>
+<span class="s2">plt.show()</span>
+<span class="s0">#%% md 
+</span><span class="s2"># Gasto por partido 
+</span><span class="s0">#%% 
+</span><span class="s2">v = promedio.groupby(</span><span class="s3">&quot;Partido&quot;</span><span class="s2">).mean().sort_values(</span><span class="s3">&quot;Total&quot;</span><span class="s2">, ascending=</span><span class="s1">True</span><span class="s2">)</span>
+
+<span class="s2">color = v.reset_index()[</span><span class="s3">&quot;Partido&quot;</span><span class="s2">].map(colors).tolist()</span>
+<span class="s2">d = v.plot(y=</span><span class="s3">&quot;Total&quot;</span><span class="s2">, kind=</span><span class="s3">&quot;barh&quot;</span><span class="s2">, color=color, figsize=(</span><span class="s4">12</span><span class="s2">, </span><span class="s4">10</span><span class="s2">), title=</span><span class="s3">&quot;Promerio gasto mensual 6 meses por partidos&quot;</span><span class="s2">)</span>
+
+<span class="s2">plt.legend(handles=handles, loc=(</span><span class="s4">1.04</span><span class="s2">, </span><span class="s4">0</span><span class="s2">))</span>
+
+<span class="s0"># to number with format h</span>
+<span class="s2">con = d.containers[</span><span class="s4">0</span><span class="s2">]</span>
+<span class="s2">d.bar_label(con, fmt=</span><span class="s3">'%d'</span><span class="s2">, labels=[</span><span class="s3">f'</span><span class="s5">{</span><span class="s2">x</span><span class="s5">:</span><span class="s3">,.0f</span><span class="s5">}</span><span class="s3">' </span><span class="s1">for </span><span class="s2">x </span><span class="s1">in </span><span class="s2">con.datavalues])</span>
+<span class="s2">d.ticklabel_format(style=</span><span class="s3">'plain'</span><span class="s2">,axis=</span><span class="s3">&quot;x&quot; </span><span class="s2">)</span>
+<span class="s2">plt.show()</span>
+
+
+<span class="s0">#%% md 
+</span><span class="s2"># Promedio por utilidad 
+</span><span class="s0">#%% 
+</span>
+<span class="s1">from </span><span class="s2">matplotlib </span><span class="s1">import </span><span class="s2">ticker</span>
+
+<span class="s2">formatter = ticker.ScalarFormatter()</span>
+<span class="s2">formatter.set_scientific(</span><span class="s1">False</span><span class="s2">)</span>
+
+<span class="s2">pl = promedio.sum().drop(labels=</span><span class="s3">&quot;Partido&quot;</span><span class="s2">, axis=</span><span class="s4">0</span><span class="s2">).drop(labels=</span><span class="s3">&quot;Total&quot;</span><span class="s2">, axis=</span><span class="s4">0</span><span class="s2">).plot(kind=</span><span class="s3">&quot;barh&quot;</span><span class="s2">,</span>
+                                                                                              <span class="s2">figsize=(</span><span class="s4">12</span><span class="s2">, </span><span class="s4">10</span><span class="s2">))</span>
+<span class="s0"># to number with format h</span>
+<span class="s2">con = pl.containers[</span><span class="s4">0</span><span class="s2">]</span>
+<span class="s2">pl.bar_label(con, fmt=</span><span class="s3">'%d'</span><span class="s2">, labels=[</span><span class="s3">f'</span><span class="s5">{</span><span class="s2">x</span><span class="s5">:</span><span class="s3">,.0f</span><span class="s5">}</span><span class="s3">' </span><span class="s1">for </span><span class="s2">x </span><span class="s1">in </span><span class="s2">con.datavalues])</span>
+<span class="s2">pl.ticklabel_format(style=</span><span class="s3">'plain'</span><span class="s2">, axis=</span><span class="s3">&quot;x&quot;</span><span class="s2">)</span>
+<span class="s2">plt.show()</span>
+
+<span class="s0">#%% md 
+</span><span class="s2"># Gasto total promedio mensual 
+</span><span class="s0">#%% 
+</span><span class="s1">import </span><span class="s2">re</span>
+
+<span class="s2">val = promedio.sum().drop(labels=</span><span class="s3">&quot;Partido&quot;</span><span class="s2">, axis=</span><span class="s4">0</span><span class="s2">)[</span><span class="s3">&quot;Total&quot;</span><span class="s2">]</span>
+<span class="s2">print(re.sub(</span><span class="s3">r'(?&lt;!^)(?=(\d{3})+$)'</span><span class="s2">, </span><span class="s3">r'.'</span><span class="s2">, str(str.split(str(val),</span><span class="s3">&quot;.&quot;</span><span class="s2">)[</span><span class="s4">0</span><span class="s2">])))</span>
+<span class="s0">#%% md 
+</span><span class="s2"># Premios a los más destacados 
+</span><span class="s0">#%% md 
+</span><span class="s2">### Por Sacar pasaje a la luna 
+</span><span class="s0">#%% 
+</span><span class="s2">analyze = promedio.sort_values(by=</span><span class="s3">&quot;TRASLACIÓN&quot;</span><span class="s2">, ascending=</span><span class="s1">False</span><span class="s2">).iloc[</span><span class="s4">0</span><span class="s2">:</span><span class="s4">25</span><span class="s2">]</span>
+<span class="s2">analyze = analyze.reset_index()</span>
+<span class="s2">color = analyze[</span><span class="s3">&quot;Partido&quot;</span><span class="s2">].map(colors).tolist()</span>
+<span class="s2">d = analyze.plot(x=</span><span class="s3">&quot;Name&quot;</span><span class="s2">, y=</span><span class="s3">&quot;TRASLACIÓN&quot;</span><span class="s2">, title=</span><span class="s3">&quot;Promedios mayores gastos en 6 meses TRASLACIÓN&quot;</span><span class="s2">, color=color, kind=</span><span class="s3">&quot;barh&quot;</span><span class="s2">,</span>
+             <span class="s2">figsize=(</span><span class="s4">12</span><span class="s2">, </span><span class="s4">10</span><span class="s2">))</span>
+
+<span class="s2">plt.legend(handles=handles, loc=(</span><span class="s4">1.04</span><span class="s2">, </span><span class="s4">0</span><span class="s2">))</span>
+
+<span class="s0"># to number with format h</span>
+<span class="s2">con = d.containers[</span><span class="s4">0</span><span class="s2">]</span>
+<span class="s2">d.bar_label(con, fmt=</span><span class="s3">'%d'</span><span class="s2">, labels=[</span><span class="s3">f'</span><span class="s5">{</span><span class="s2">x</span><span class="s5">:</span><span class="s3">,.0f</span><span class="s5">}</span><span class="s3">' </span><span class="s1">for </span><span class="s2">x </span><span class="s1">in </span><span class="s2">con.datavalues])</span>
+<span class="s2">d.ticklabel_format(style=</span><span class="s3">'plain'</span><span class="s2">, axis=</span><span class="s3">&quot;x&quot; </span><span class="s2">)</span>
+<span class="s2">plt.show()</span>
+
+<span class="s0">#%% 
+</span><span class="s2">analyze = promedio.sort_values(by=</span><span class="s3">&quot;TRASLACIÓN&quot;</span><span class="s2">, ascending=</span><span class="s1">True</span><span class="s2">).iloc[</span><span class="s4">0</span><span class="s2">:</span><span class="s4">25</span><span class="s2">]</span>
+<span class="s2">analyze = analyze.reset_index()</span>
+<span class="s2">color = analyze[</span><span class="s3">&quot;Partido&quot;</span><span class="s2">].map(colors).tolist()</span>
+<span class="s2">d = analyze.plot(x=</span><span class="s3">&quot;Name&quot;</span><span class="s2">, y=</span><span class="s3">&quot;TRASLACIÓN&quot;</span><span class="s2">, title=</span><span class="s3">&quot;Promedios menos gastos en 6 meses TRASLACIÓN&quot;</span><span class="s2">, color=color, kind=</span><span class="s3">&quot;barh&quot;</span><span class="s2">,</span>
+             <span class="s2">figsize=(</span><span class="s4">12</span><span class="s2">, </span><span class="s4">10</span><span class="s2">))</span>
+
+<span class="s2">plt.legend(handles=handles, loc=(</span><span class="s4">1.04</span><span class="s2">, </span><span class="s4">0</span><span class="s2">))</span>
+
+<span class="s0"># to number with format h</span>
+<span class="s2">con = d.containers[</span><span class="s4">0</span><span class="s2">]</span>
+<span class="s2">d.bar_label(con, fmt=</span><span class="s3">'%d'</span><span class="s2">, labels=[</span><span class="s3">f'</span><span class="s5">{</span><span class="s2">x</span><span class="s5">:</span><span class="s3">,.0f</span><span class="s5">}</span><span class="s3">' </span><span class="s1">for </span><span class="s2">x </span><span class="s1">in </span><span class="s2">con.datavalues])</span>
+<span class="s2">d.ticklabel_format(style=</span><span class="s3">'plain'</span><span class="s2">, axis=</span><span class="s3">&quot;x&quot; </span><span class="s2">)</span>
+<span class="s2">plt.show()</span>
+
+<span class="s0">#%% md 
+</span><span class="s2">#### Conclusión, parece que la internacional se aplica más a la derecha, o no tienen donde ir 
+</span><span class="s0">#%% md 
+</span><span class="s2">### Por tener más apitutados dentro del estado 
+</span><span class="s0">#%% 
+</span><span class="s2">category = </span><span class="s3">&quot;TRASPASO DESDE GASTOS OPERACIONALES A ASIGNACIÓN PERSONAL DE APOYO&quot;</span>
+
+<span class="s2">analyze = promedio.sort_values(by=category, ascending=</span><span class="s1">False</span><span class="s2">).iloc[</span><span class="s4">0</span><span class="s2">:</span><span class="s4">25</span><span class="s2">]</span>
+<span class="s2">analyze = analyze.reset_index()</span>
+<span class="s2">color = analyze[</span><span class="s3">&quot;Partido&quot;</span><span class="s2">].map(colors).tolist()</span>
+<span class="s2">d = analyze.plot(x=</span><span class="s3">&quot;Name&quot;</span><span class="s2">, y=category, title=</span><span class="s3">&quot;Máximos gastos operacionales promedio &quot;</span><span class="s2">+category, color=color, kind=</span><span class="s3">&quot;barh&quot;</span><span class="s2">,</span>
+             <span class="s2">figsize=(</span><span class="s4">12</span><span class="s2">, </span><span class="s4">10</span><span class="s2">))</span>
+
+<span class="s2">plt.legend(handles=handles, loc=(</span><span class="s4">1.04</span><span class="s2">, </span><span class="s4">0</span><span class="s2">))</span>
+
+<span class="s0"># to number with format h</span>
+<span class="s2">con = d.containers[</span><span class="s4">0</span><span class="s2">]</span>
+<span class="s2">d.bar_label(con, fmt=</span><span class="s3">'%d'</span><span class="s2">, labels=[</span><span class="s3">f'</span><span class="s5">{</span><span class="s2">x</span><span class="s5">:</span><span class="s3">,.0f</span><span class="s5">}</span><span class="s3">' </span><span class="s1">for </span><span class="s2">x </span><span class="s1">in </span><span class="s2">con.datavalues])</span>
+<span class="s2">d.ticklabel_format(style=</span><span class="s3">'plain'</span><span class="s2">, axis=</span><span class="s3">&quot;x&quot; </span><span class="s2">)</span>
+<span class="s2">plt.show()</span>
+
+<span class="s0">#%% 
+</span><span class="s2">category = </span><span class="s3">&quot;TRASPASO DESDE GASTOS OPERACIONALES A ASIGNACIÓN PERSONAL DE APOYO&quot;</span>
+
+<span class="s2">analyze = promedio.sort_values(by=category, ascending=</span><span class="s1">True</span><span class="s2">).iloc[</span><span class="s4">0</span><span class="s2">:</span><span class="s4">25</span><span class="s2">]</span>
+<span class="s2">analyze = analyze.reset_index()</span>
+<span class="s2">color = analyze[</span><span class="s3">&quot;Partido&quot;</span><span class="s2">].map(colors).tolist()</span>
+<span class="s2">d = analyze.plot(x=</span><span class="s3">&quot;Name&quot;</span><span class="s2">, y=category, title=</span><span class="s3">&quot;Máximos gastos operacionales promedio &quot;</span><span class="s2">+category, color=color, kind=</span><span class="s3">&quot;barh&quot;</span><span class="s2">,</span>
+             <span class="s2">figsize=(</span><span class="s4">12</span><span class="s2">, </span><span class="s4">10</span><span class="s2">))</span>
+
+<span class="s2">plt.legend(handles=handles, loc=(</span><span class="s4">1.04</span><span class="s2">, </span><span class="s4">0</span><span class="s2">))</span>
+
+<span class="s0"># to number with format h</span>
+<span class="s2">con = d.containers[</span><span class="s4">0</span><span class="s2">]</span>
+<span class="s2">d.bar_label(con, fmt=</span><span class="s3">'%d'</span><span class="s2">, labels=[</span><span class="s3">f'</span><span class="s5">{</span><span class="s2">x</span><span class="s5">:</span><span class="s3">,.0f</span><span class="s5">}</span><span class="s3">' </span><span class="s1">for </span><span class="s2">x </span><span class="s1">in </span><span class="s2">con.datavalues])</span>
+<span class="s2">d.ticklabel_format(style=</span><span class="s3">'plain'</span><span class="s2">, axis=</span><span class="s3">&quot;x&quot; </span><span class="s2">)</span>
+<span class="s2">plt.show()</span>
+<span class="s0">#%% md 
+</span><span class="s2">### Actrices y actores frustados 
+ 
+</span><span class="s0">#%% 
+</span><span class="s2">category = </span><span class="s3">&quot;DIFUSIÓN&quot;</span>
+<span class="s2">analyze = promedio.sort_values(by=category, ascending=</span><span class="s1">False</span><span class="s2">).iloc[</span><span class="s4">0</span><span class="s2">:</span><span class="s4">25</span><span class="s2">]</span>
+<span class="s2">analyze = analyze.reset_index()</span>
+<span class="s2">color = analyze[</span><span class="s3">&quot;Partido&quot;</span><span class="s2">].map(colors).tolist()</span>
+<span class="s2">d = analyze.plot(x=</span><span class="s3">&quot;Name&quot;</span><span class="s2">, y=category, title=</span><span class="s3">&quot;Máximos gastos en &quot;</span><span class="s2">+ category, color=color, kind=</span><span class="s3">&quot;barh&quot;</span><span class="s2">,</span>
+             <span class="s2">figsize=(</span><span class="s4">12</span><span class="s2">, </span><span class="s4">10</span><span class="s2">))</span>
+
+<span class="s2">plt.legend(handles=handles, loc=(</span><span class="s4">1.04</span><span class="s2">, </span><span class="s4">0</span><span class="s2">))</span>
+
+<span class="s0"># to number with format h</span>
+<span class="s2">con = d.containers[</span><span class="s4">0</span><span class="s2">]</span>
+<span class="s2">d.bar_label(con, fmt=</span><span class="s3">'%d'</span><span class="s2">, labels=[</span><span class="s3">f'</span><span class="s5">{</span><span class="s2">x</span><span class="s5">:</span><span class="s3">,.0f</span><span class="s5">}</span><span class="s3">' </span><span class="s1">for </span><span class="s2">x </span><span class="s1">in </span><span class="s2">con.datavalues])</span>
+<span class="s2">d.ticklabel_format(style=</span><span class="s3">'plain'</span><span class="s2">, axis=</span><span class="s3">&quot;x&quot; </span><span class="s2">)</span>
+<span class="s2">plt.show()</span>
+
+<span class="s0">#%% 
+</span><span class="s2">category = </span><span class="s3">&quot;DIFUSIÓN&quot;</span>
+<span class="s2">analyze = promedio.sort_values(by=category, ascending=</span><span class="s1">True</span><span class="s2">).iloc[</span><span class="s4">0</span><span class="s2">:</span><span class="s4">25</span><span class="s2">]</span>
+<span class="s2">analyze = analyze.reset_index()</span>
+<span class="s2">color = analyze[</span><span class="s3">&quot;Partido&quot;</span><span class="s2">].map(colors).tolist()</span>
+<span class="s2">d = analyze.plot(x=</span><span class="s3">&quot;Name&quot;</span><span class="s2">, y=category, title=</span><span class="s3">&quot;Mínimos gastos en &quot;</span><span class="s2">+ category, color=color, kind=</span><span class="s3">&quot;barh&quot;</span><span class="s2">,</span>
+             <span class="s2">figsize=(</span><span class="s4">12</span><span class="s2">, </span><span class="s4">10</span><span class="s2">))</span>
+
+<span class="s2">plt.legend(handles=handles, loc=(</span><span class="s4">1.04</span><span class="s2">, </span><span class="s4">0</span><span class="s2">))</span>
+
+<span class="s0"># to number with format h</span>
+<span class="s2">con = d.containers[</span><span class="s4">0</span><span class="s2">]</span>
+<span class="s2">d.bar_label(con, fmt=</span><span class="s3">'%d'</span><span class="s2">, labels=[</span><span class="s3">f'</span><span class="s5">{</span><span class="s2">x</span><span class="s5">:</span><span class="s3">,.0f</span><span class="s5">}</span><span class="s3">' </span><span class="s1">for </span><span class="s2">x </span><span class="s1">in </span><span class="s2">con.datavalues])</span>
+<span class="s2">d.ticklabel_format(style=</span><span class="s3">'plain'</span><span class="s2">, axis=</span><span class="s3">&quot;x&quot; </span><span class="s2">)</span>
+<span class="s2">plt.show()</span>
+
+<span class="s0">#%% md 
+</span><span class="s2">### Con mi casa no 
+</span><span class="s0">#%% 
+</span><span class="s2">category = </span><span class="s3">&quot;ARRIENDO DE INMUEBLE&quot;</span>
+
+<span class="s2">analyze = promedio.sort_values(by=category, ascending=</span><span class="s1">False</span><span class="s2">).iloc[</span><span class="s4">0</span><span class="s2">:</span><span class="s4">25</span><span class="s2">]</span>
+<span class="s2">analyze = analyze.reset_index()</span>
+<span class="s2">color = analyze[</span><span class="s3">&quot;Partido&quot;</span><span class="s2">].map(colors).tolist()</span>
+<span class="s2">d = analyze.plot(x=</span><span class="s3">&quot;Name&quot;</span><span class="s2">, y=category, title=</span><span class="s3">&quot;Máximos gastos en &quot;</span><span class="s2">+ category, color=color, kind=</span><span class="s3">&quot;barh&quot;</span><span class="s2">,</span>
+             <span class="s2">figsize=(</span><span class="s4">12</span><span class="s2">, </span><span class="s4">10</span><span class="s2">))</span>
+
+<span class="s2">plt.legend(handles=handles, loc=(</span><span class="s4">1.04</span><span class="s2">, </span><span class="s4">0</span><span class="s2">))</span>
+
+<span class="s0"># to number with format h</span>
+<span class="s2">con = d.containers[</span><span class="s4">0</span><span class="s2">]</span>
+<span class="s2">d.bar_label(con, fmt=</span><span class="s3">'%d'</span><span class="s2">, labels=[</span><span class="s3">f'</span><span class="s5">{</span><span class="s2">x</span><span class="s5">:</span><span class="s3">,.0f</span><span class="s5">}</span><span class="s3">' </span><span class="s1">for </span><span class="s2">x </span><span class="s1">in </span><span class="s2">con.datavalues])</span>
+<span class="s2">d.ticklabel_format(style=</span><span class="s3">'plain'</span><span class="s2">, axis=</span><span class="s3">&quot;x&quot; </span><span class="s2">)</span>
+<span class="s2">plt.show()</span>
+
+<span class="s0">#%% 
+</span><span class="s2">category = </span><span class="s3">&quot;ARRIENDO DE INMUEBLE&quot;</span>
+
+<span class="s2">analyze = promedio.sort_values(by=category, ascending=</span><span class="s1">True</span><span class="s2">).iloc[</span><span class="s4">0</span><span class="s2">:</span><span class="s4">25</span><span class="s2">]</span>
+<span class="s2">analyze = analyze.reset_index()</span>
+<span class="s2">color = analyze[</span><span class="s3">&quot;Partido&quot;</span><span class="s2">].map(colors).tolist()</span>
+<span class="s2">d = analyze.plot(x=</span><span class="s3">&quot;Name&quot;</span><span class="s2">, y=category, title=</span><span class="s3">&quot;Mínimos gastos en &quot;</span><span class="s2">+ category, color=color, kind=</span><span class="s3">&quot;barh&quot;</span><span class="s2">,</span>
+             <span class="s2">figsize=(</span><span class="s4">12</span><span class="s2">, </span><span class="s4">10</span><span class="s2">))</span>
+
+<span class="s2">plt.legend(handles=handles, loc=(</span><span class="s4">1.04</span><span class="s2">, </span><span class="s4">0</span><span class="s2">))</span>
+
+<span class="s0"># to number with format h</span>
+<span class="s2">con = d.containers[</span><span class="s4">0</span><span class="s2">]</span>
+<span class="s2">d.bar_label(con, fmt=</span><span class="s3">'%d'</span><span class="s2">, labels=[</span><span class="s3">f'</span><span class="s5">{</span><span class="s2">x</span><span class="s5">:</span><span class="s3">,.0f</span><span class="s5">}</span><span class="s3">' </span><span class="s1">for </span><span class="s2">x </span><span class="s1">in </span><span class="s2">con.datavalues])</span>
+<span class="s2">d.ticklabel_format(style=</span><span class="s3">'plain'</span><span class="s2">, axis=</span><span class="s3">&quot;x&quot; </span><span class="s2">)</span>
+<span class="s2">plt.show()</span>
+
+<span class="s0">#%% md 
+</span><span class="s2">### La familia lo es todo 
+</span><span class="s0">#%% 
+</span><span class="s2">category = </span><span class="s3">&quot;TELEFONÍA&quot;</span>
+
+<span class="s2">analyze = promedio.sort_values(by=category, ascending=</span><span class="s1">False</span><span class="s2">).iloc[</span><span class="s4">0</span><span class="s2">:</span><span class="s4">25</span><span class="s2">]</span>
+<span class="s2">analyze = analyze.reset_index()</span>
+<span class="s2">color = analyze[</span><span class="s3">&quot;Partido&quot;</span><span class="s2">].map(colors).tolist()</span>
+<span class="s2">d = analyze.plot(x=</span><span class="s3">&quot;Name&quot;</span><span class="s2">, y=category, title=</span><span class="s3">&quot;Máximos gastos en&quot;</span><span class="s2">+ category, color=color, kind=</span><span class="s3">&quot;barh&quot;</span><span class="s2">,</span>
+             <span class="s2">figsize=(</span><span class="s4">12</span><span class="s2">, </span><span class="s4">10</span><span class="s2">))</span>
+
+<span class="s2">plt.legend(handles=handles, loc=(</span><span class="s4">1.04</span><span class="s2">, </span><span class="s4">0</span><span class="s2">))</span>
+
+<span class="s0"># to number with format h</span>
+<span class="s2">con = d.containers[</span><span class="s4">0</span><span class="s2">]</span>
+<span class="s2">d.bar_label(con, fmt=</span><span class="s3">'%d'</span><span class="s2">, labels=[</span><span class="s3">f'</span><span class="s5">{</span><span class="s2">x</span><span class="s5">:</span><span class="s3">,.0f</span><span class="s5">}</span><span class="s3">' </span><span class="s1">for </span><span class="s2">x </span><span class="s1">in </span><span class="s2">con.datavalues])</span>
+<span class="s2">d.ticklabel_format(style=</span><span class="s3">'plain'</span><span class="s2">, axis=</span><span class="s3">&quot;x&quot; </span><span class="s2">)</span>
+<span class="s2">plt.show()</span>
+
+<span class="s0">#%% 
+</span><span class="s2">category = </span><span class="s3">&quot;TELEFONÍA&quot;</span>
+
+<span class="s2">analyze = promedio.sort_values(by=category, ascending=</span><span class="s1">True</span><span class="s2">).iloc[</span><span class="s4">0</span><span class="s2">:</span><span class="s4">25</span><span class="s2">]</span>
+<span class="s2">analyze = analyze.reset_index()</span>
+<span class="s2">color = analyze[</span><span class="s3">&quot;Partido&quot;</span><span class="s2">].map(colors).tolist()</span>
+<span class="s2">d = analyze.plot(x=</span><span class="s3">&quot;Name&quot;</span><span class="s2">, y=category, title=</span><span class="s3">&quot;Mínimos gastos en&quot;</span><span class="s2">+ category, color=color, kind=</span><span class="s3">&quot;barh&quot;</span><span class="s2">,</span>
+             <span class="s2">figsize=(</span><span class="s4">12</span><span class="s2">, </span><span class="s4">10</span><span class="s2">))</span>
+
+<span class="s2">plt.legend(handles=handles, loc=(</span><span class="s4">1.04</span><span class="s2">, </span><span class="s4">0</span><span class="s2">))</span>
+
+<span class="s0"># to number with format h</span>
+<span class="s2">con = d.containers[</span><span class="s4">0</span><span class="s2">]</span>
+<span class="s2">d.bar_label(con, fmt=</span><span class="s3">'%d'</span><span class="s2">, labels=[</span><span class="s3">f'</span><span class="s5">{</span><span class="s2">x</span><span class="s5">:</span><span class="s3">,.0f</span><span class="s5">}</span><span class="s3">' </span><span class="s1">for </span><span class="s2">x </span><span class="s1">in </span><span class="s2">con.datavalues])</span>
+<span class="s2">d.ticklabel_format(style=</span><span class="s3">'plain'</span><span class="s2">, axis=</span><span class="s3">&quot;x&quot; </span><span class="s2">)</span>
+<span class="s2">plt.show()</span>
+
+<span class="s0">#%% md 
+</span><span class="s2">## Futuros youtubers 
+</span><span class="s0">#%% 
+</span><span class="s2">category = </span><span class="s3">&quot;SERVICIOS WEB&quot;</span>
+
+<span class="s2">analyze = promedio.sort_values(by=category, ascending=</span><span class="s1">False</span><span class="s2">).iloc[</span><span class="s4">0</span><span class="s2">:</span><span class="s4">25</span><span class="s2">]</span>
+<span class="s2">analyze = analyze.reset_index()</span>
+<span class="s2">color = analyze[</span><span class="s3">&quot;Partido&quot;</span><span class="s2">].map(colors).tolist()</span>
+<span class="s2">d = analyze.plot(x=</span><span class="s3">&quot;Name&quot;</span><span class="s2">, y=category, title=</span><span class="s3">&quot;Mínimos gastos en&quot;</span><span class="s2">+ category, color=color, kind=</span><span class="s3">&quot;barh&quot;</span><span class="s2">,</span>
+             <span class="s2">figsize=(</span><span class="s4">12</span><span class="s2">, </span><span class="s4">10</span><span class="s2">))</span>
+
+<span class="s2">plt.legend(handles=handles, loc=(</span><span class="s4">1.04</span><span class="s2">, </span><span class="s4">0</span><span class="s2">))</span>
+
+<span class="s0"># to number with format h</span>
+<span class="s2">con = d.containers[</span><span class="s4">0</span><span class="s2">]</span>
+<span class="s2">d.bar_label(con, fmt=</span><span class="s3">'%d'</span><span class="s2">, labels=[</span><span class="s3">f'</span><span class="s5">{</span><span class="s2">x</span><span class="s5">:</span><span class="s3">,.0f</span><span class="s5">}</span><span class="s3">' </span><span class="s1">for </span><span class="s2">x </span><span class="s1">in </span><span class="s2">con.datavalues])</span>
+<span class="s2">d.ticklabel_format(style=</span><span class="s3">'plain'</span><span class="s2">, axis=</span><span class="s3">&quot;x&quot; </span><span class="s2">)</span>
+<span class="s2">plt.show()</span>
+</pre>
+</body>
+</html>

@@ -1,0 +1,956 @@
+[
+  {
+    "Id": "",
+    "Name": "",
+    "Distrito": "",
+    "Partido": ""
+  },
+  {
+    "Id": "1077",
+    "Name": "Sr. Raúl Soto Mardones ",
+    "Distrito": "Presidente",
+    "Partido": "Región: del Libertador General Bernardo O' Higgins"
+  },
+  {
+    "Id": "1076",
+    "Name": "Sr. Alexis Sepúlveda Soto",
+    "Distrito": "Primer Vicepresidente",
+    "Partido": "Región:  del Maule"
+  },
+  {
+    "Id": "1051",
+    "Name": "Sra. Claudia Mix Jiménez",
+    "Distrito": "Segunda Vicepresidenta",
+    "Partido": "Región:  Metropolitana de Santiago"
+  },
+  {
+    "Id": "1096",
+    "Name": "Sra. María Candelaria Acevedo",
+    "Distrito": "Distrito: N°20",
+    "Partido": "Partido: PC"
+  },
+  {
+    "Id": "1097",
+    "Name": "Sr. Eric Aedo",
+    "Distrito": "Distrito: N°20",
+    "Partido": "Partido: DC"
+  },
+  {
+    "Id": "1098",
+    "Name": "Sra. Yovana Ahumada",
+    "Distrito": "Distrito: N°3",
+    "Partido": "Partido: PDG"
+  },
+  {
+    "Id": "1009",
+    "Name": "Sr. Jorge Alessandri",
+    "Distrito": "Distrito: N°10",
+    "Partido": "Partido: UDI"
+  },
+  {
+    "Id": "803",
+    "Name": "Sr. René Alinco",
+    "Distrito": "Distrito: N°27",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "1099",
+    "Name": "Sr. Jaime Araya",
+    "Distrito": "Distrito: N°3",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "1100",
+    "Name": "Sr. Cristián Araya",
+    "Distrito": "Distrito: N°11",
+    "Partido": "Partido: PREP"
+  },
+  {
+    "Id": "1101",
+    "Name": "Sra. Mónica Arce",
+    "Distrito": "Distrito: N°12",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "1102",
+    "Name": "Sr. Roberto Arroyo",
+    "Distrito": "Distrito: N°20",
+    "Partido": "Partido: PDG"
+  },
+  {
+    "Id": "1103",
+    "Name": "Sra. Danisa Astudillo",
+    "Distrito": "Distrito: N°2",
+    "Partido": "Partido: PS"
+  },
+  {
+    "Id": "1104",
+    "Name": "Sra. Chiara Barchiesi",
+    "Distrito": "Distrito: N°6",
+    "Partido": "Partido: PREP"
+  },
+  {
+    "Id": "1012",
+    "Name": "Sr. Boris Barrera",
+    "Distrito": "Distrito: N°9",
+    "Partido": "Partido: PC"
+  },
+  {
+    "Id": "1105",
+    "Name": "Sr. Héctor Barría",
+    "Distrito": "Distrito: N°25",
+    "Partido": "Partido: DC"
+  },
+  {
+    "Id": "1106",
+    "Name": "Sr. Miguel Ángel Becker",
+    "Distrito": "Distrito: N°23",
+    "Partido": "Partido: RN"
+  },
+  {
+    "Id": "1107",
+    "Name": "Sra. María Francisca Bello",
+    "Distrito": "Distrito: N°6",
+    "Partido": "Partido: PCS"
+  },
+  {
+    "Id": "1108",
+    "Name": "Sr. Juan Carlos Beltrán",
+    "Distrito": "Distrito: N°22",
+    "Partido": "Partido: RN"
+  },
+  {
+    "Id": "1109",
+    "Name": "Sr. Gustavo Benavente",
+    "Distrito": "Distrito: N°18",
+    "Partido": "Partido: UDI"
+  },
+  {
+    "Id": "971",
+    "Name": "Sr. Bernardo Berger",
+    "Distrito": "Distrito: N°24",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "1013",
+    "Name": "Sr. Alejandro Bernales",
+    "Distrito": "Distrito: N°26",
+    "Partido": "Partido: LIBERAL"
+  },
+  {
+    "Id": "1110",
+    "Name": "Sr. Carlos Bianchi",
+    "Distrito": "Distrito: N°28",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "815",
+    "Name": "Sr. Sergio Bobadilla",
+    "Distrito": "Distrito: N°20",
+    "Partido": "Partido: UDI"
+  },
+  {
+    "Id": "1111",
+    "Name": "Sr. Fernando Bórquez",
+    "Distrito": "Distrito: N°26",
+    "Partido": "Partido: UDI"
+  },
+  {
+    "Id": "1112",
+    "Name": "Sra. Ana María Bravo",
+    "Distrito": "Distrito: N°24",
+    "Partido": "Partido: PS"
+  },
+  {
+    "Id": "1113",
+    "Name": "Sra. Marta Bravo",
+    "Distrito": "Distrito: N°19",
+    "Partido": "Partido: UDI"
+  },
+  {
+    "Id": "1015",
+    "Name": "Sr. Jorge Brito",
+    "Distrito": "Distrito: N°7",
+    "Partido": "Partido: RD"
+  },
+  {
+    "Id": "1114",
+    "Name": "Sr. Félix Bugueño",
+    "Distrito": "Distrito: N°16",
+    "Partido": "Partido: FRVS"
+  },
+  {
+    "Id": "1115",
+    "Name": "Sra. Mercedes Bulnes",
+    "Distrito": "Distrito: N°17",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "1016",
+    "Name": "Sr. Miguel Ángel Calisto",
+    "Distrito": "Distrito: N°27",
+    "Partido": "Partido: DC"
+  },
+  {
+    "Id": "1116",
+    "Name": "Sr. Felipe Camaño",
+    "Distrito": "Distrito: N°19",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "973",
+    "Name": "Sra. Karol Cariola",
+    "Distrito": "Distrito: N°9",
+    "Partido": "Partido: PC"
+  },
+  {
+    "Id": "1017",
+    "Name": "Sr. Álvaro Carter",
+    "Distrito": "Distrito: N°12",
+    "Partido": "Partido: UDI"
+  },
+  {
+    "Id": "1117",
+    "Name": "Sra. Nathalie Castillo",
+    "Distrito": "Distrito: N°5",
+    "Partido": "Partido: PC"
+  },
+  {
+    "Id": "1019",
+    "Name": "Sr. José Miguel Castro",
+    "Distrito": "Distrito: N°3",
+    "Partido": "Partido: RN"
+  },
+  {
+    "Id": "1021",
+    "Name": "Sr. Andrés Celis",
+    "Distrito": "Distrito: N°7",
+    "Partido": "Partido: RN"
+  },
+  {
+    "Id": "975",
+    "Name": "Sra. Daniella Cicardini",
+    "Distrito": "Distrito: N°4",
+    "Partido": "Partido: PS"
+  },
+  {
+    "Id": "1022",
+    "Name": "Sra. Sofía Cid",
+    "Distrito": "Distrito: N°4",
+    "Partido": "Partido: RN"
+  },
+  {
+    "Id": "1118",
+    "Name": "Sr. Ricardo Cifuentes",
+    "Distrito": "Distrito: N°5",
+    "Partido": "Partido: DC"
+  },
+  {
+    "Id": "976",
+    "Name": "Sr. Juan Antonio Coloma",
+    "Distrito": "Distrito: N°14",
+    "Partido": "Partido: UDI"
+  },
+  {
+    "Id": "1119",
+    "Name": "Sra. Sara Concha",
+    "Distrito": "Distrito: N°19",
+    "Partido": "Partido: PCC"
+  },
+  {
+    "Id": "1120",
+    "Name": "Sra. María Luisa Cordero",
+    "Distrito": "Distrito: N°10",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "1121",
+    "Name": "Sr. Eduardo Cornejo",
+    "Distrito": "Distrito: N°16",
+    "Partido": "Partido: UDI"
+  },
+  {
+    "Id": "1122",
+    "Name": "Sr. Luis Alberto Cuello",
+    "Distrito": "Distrito: N°7",
+    "Partido": "Partido: PC"
+  },
+  {
+    "Id": "1123",
+    "Name": "Sr. Gonzalo De la Carrera",
+    "Distrito": "Distrito: N°11",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "1124",
+    "Name": "Sr. Tomás De Rementería",
+    "Distrito": "Distrito: N°7",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "1025",
+    "Name": "Sra. Catalina Del Real",
+    "Distrito": "Distrito: N°11",
+    "Partido": "Partido: RN"
+  },
+  {
+    "Id": "1125",
+    "Name": "Sra. Viviana Delgado",
+    "Distrito": "Distrito: N°8",
+    "Partido": "Partido: PEV"
+  },
+  {
+    "Id": "1126",
+    "Name": "Sr. Felipe Donoso",
+    "Distrito": "Distrito: N°17",
+    "Partido": "Partido: UDI"
+  },
+  {
+    "Id": "1027",
+    "Name": "Sr. Jorge Durán",
+    "Distrito": "Distrito: N°9",
+    "Partido": "Partido: RN"
+  },
+  {
+    "Id": "1028",
+    "Name": "Sr. Eduardo Durán",
+    "Distrito": "Distrito: N°13",
+    "Partido": "Partido: RN"
+  },
+  {
+    "Id": "1030",
+    "Name": "Sra. Camila Flores",
+    "Distrito": "Distrito: N°6",
+    "Partido": "Partido: RN"
+  },
+  {
+    "Id": "1127",
+    "Name": "Sra. Lorena Fries",
+    "Distrito": "Distrito: N°10",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "1031",
+    "Name": "Sr. Juan Fuenzalida",
+    "Distrito": "Distrito: N°5",
+    "Partido": "Partido: UDI"
+  },
+  {
+    "Id": "1128",
+    "Name": "Sra. Ana María Gazmuri",
+    "Distrito": "Distrito: N°12",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "1129",
+    "Name": "Sr. Andrés Giordano",
+    "Distrito": "Distrito: N°9",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "1034",
+    "Name": "Sr. Félix González",
+    "Distrito": "Distrito: N°20",
+    "Partido": "Partido: PEV"
+  },
+  {
+    "Id": "1130",
+    "Name": "Sra. Marta González",
+    "Distrito": "Distrito: N°15",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "1131",
+    "Name": "Sr. Mauro González",
+    "Distrito": "Distrito: N°26",
+    "Partido": "Partido: RN"
+  },
+  {
+    "Id": "1132",
+    "Name": "Sr. Jorge Guzmán",
+    "Distrito": "Distrito: N°17",
+    "Partido": "Partido: EVOP"
+  },
+  {
+    "Id": "1035",
+    "Name": "Sra. Carmen Hertz",
+    "Distrito": "Distrito: N°8",
+    "Partido": "Partido: PC"
+  },
+  {
+    "Id": "1036",
+    "Name": "Sr. Tomás Hirsch",
+    "Distrito": "Distrito: N°11",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "1037",
+    "Name": "Sr. Diego Ibáñez",
+    "Distrito": "Distrito: N°6",
+    "Partido": "Partido: PCS"
+  },
+  {
+    "Id": "1038",
+    "Name": "Sr. Marcos Ilabaca",
+    "Distrito": "Distrito: N°24",
+    "Partido": "Partido: PS"
+  },
+  {
+    "Id": "1133",
+    "Name": "Sr. Juan Irarrázaval",
+    "Distrito": "Distrito: N°14",
+    "Partido": "Partido: PREP"
+  },
+  {
+    "Id": "1039",
+    "Name": "Sra. Pamela Jiles",
+    "Distrito": "Distrito: N°12",
+    "Partido": "Partido: PH"
+  },
+  {
+    "Id": "1134",
+    "Name": "Sr. Andrés Jouannet",
+    "Distrito": "Distrito: N°23",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "1040",
+    "Name": "Sr. Harry Jürgensen",
+    "Distrito": "Distrito: N°25",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "1135",
+    "Name": "Sr. Johannes Kaiser",
+    "Distrito": "Distrito: N°10",
+    "Partido": "Partido: PREP"
+  },
+  {
+    "Id": "1094",
+    "Name": "Sr. Cristian Labbé",
+    "Distrito": "Distrito: N°8",
+    "Partido": "Partido: UDI"
+  },
+  {
+    "Id": "1136",
+    "Name": "Sra. Paula Labra",
+    "Distrito": "Distrito: N°18",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "1137",
+    "Name": "Sr. Tomás Lagomarsino",
+    "Distrito": "Distrito: N°7",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "989",
+    "Name": "Sr. Joaquín Lavín",
+    "Distrito": "Distrito: N°8",
+    "Partido": "Partido: UDI"
+  },
+  {
+    "Id": "1138",
+    "Name": "Sr. Henry Leal",
+    "Distrito": "Distrito: N°23",
+    "Partido": "Partido: UDI"
+  },
+  {
+    "Id": "1139",
+    "Name": "Sr. Enrique Lee",
+    "Distrito": "Distrito: N°1",
+    "Partido": "Partido: PRI"
+  },
+  {
+    "Id": "1044",
+    "Name": "Sr. Raúl Leiva",
+    "Distrito": "Distrito: N°14",
+    "Partido": "Partido: PS"
+  },
+  {
+    "Id": "1140",
+    "Name": "Sr. Daniel Lilayu",
+    "Distrito": "Distrito: N°25",
+    "Partido": "Partido: UDI"
+  },
+  {
+    "Id": "1046",
+    "Name": "Sr. Andrés Longton",
+    "Distrito": "Distrito: N°6",
+    "Partido": "Partido: RN"
+  },
+  {
+    "Id": "1141",
+    "Name": "Sr. Luis Malla",
+    "Distrito": "Distrito: N°1",
+    "Partido": "Partido: LIBERAL"
+  },
+  {
+    "Id": "1142",
+    "Name": "Sr. Daniel Manouchehri",
+    "Distrito": "Distrito: N°5",
+    "Partido": "Partido: PS"
+  },
+  {
+    "Id": "1143",
+    "Name": "Sr. Cristóbal Martínez",
+    "Distrito": "Distrito: N°19",
+    "Partido": "Partido: UDI"
+  },
+  {
+    "Id": "1048",
+    "Name": "Sra. Carolina Marzán",
+    "Distrito": "Distrito: N°6",
+    "Partido": "Partido: PPD"
+  },
+  {
+    "Id": "1144",
+    "Name": "Sr. Christian Matheson",
+    "Distrito": "Distrito: N°28",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "1145",
+    "Name": "Sra. Karen Medina",
+    "Distrito": "Distrito: N°21",
+    "Partido": "Partido: PDG"
+  },
+  {
+    "Id": "1049",
+    "Name": "Sr. Cosme Mellado",
+    "Distrito": "Distrito: N°16",
+    "Partido": "Partido: PR"
+  },
+  {
+    "Id": "1050",
+    "Name": "Sr. Miguel Mellado",
+    "Distrito": "Distrito: N°23",
+    "Partido": "Partido: RN"
+  },
+  {
+    "Id": "990",
+    "Name": "Sr. Daniel Melo",
+    "Distrito": "Distrito: N°13",
+    "Partido": "Partido: PS"
+  },
+  {
+    "Id": "1146",
+    "Name": "Sr. José Carlos Meza",
+    "Distrito": "Distrito: N°9",
+    "Partido": "Partido: PREP"
+  },
+  {
+    "Id": "991",
+    "Name": "Sr. Vlado Mirosevic",
+    "Distrito": "Distrito: N°1",
+    "Partido": "Partido: LIBERAL"
+  },
+  {
+    "Id": "1051",
+    "Name": "Sra. Claudia Mix",
+    "Distrito": "Distrito: N°8",
+    "Partido": "Partido: COMUNES"
+  },
+  {
+    "Id": "1147",
+    "Name": "Sra. Helia Molina",
+    "Distrito": "Distrito: N°10",
+    "Partido": "Partido: PPD"
+  },
+  {
+    "Id": "1148",
+    "Name": "Sra. Javiera Morales",
+    "Distrito": "Distrito: N°28",
+    "Partido": "Partido: PCS"
+  },
+  {
+    "Id": "1149",
+    "Name": "Sra. Carla Morales",
+    "Distrito": "Distrito: N°16",
+    "Partido": "Partido: RN"
+  },
+  {
+    "Id": "1053",
+    "Name": "Sr. Cristhian Moreira",
+    "Distrito": "Distrito: N°13",
+    "Partido": "Partido: UDI"
+  },
+  {
+    "Id": "1150",
+    "Name": "Sr. Benjamín Moreno",
+    "Distrito": "Distrito: N°17",
+    "Partido": "Partido: PREP"
+  },
+  {
+    "Id": "872",
+    "Name": "Sr. Jaime Mulet",
+    "Distrito": "Distrito: N°4",
+    "Partido": "Partido: FRVS"
+  },
+  {
+    "Id": "1054",
+    "Name": "Sra. Francesca Muñoz",
+    "Distrito": "Distrito: N°20",
+    "Partido": "Partido: RN"
+  },
+  {
+    "Id": "1151",
+    "Name": "Sra. Camila Musante",
+    "Distrito": "Distrito: N°14",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "74",
+    "Name": "Sr. Jaime Naranjo",
+    "Distrito": "Distrito: N°18",
+    "Partido": "Partido: PS"
+  },
+  {
+    "Id": "1152",
+    "Name": "Sra. Gloria Naveillan",
+    "Distrito": "Distrito: N°22",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "1056",
+    "Name": "Sra. Emilia Nuyado",
+    "Distrito": "Distrito: N°25",
+    "Partido": "Partido: PS"
+  },
+  {
+    "Id": "1153",
+    "Name": "Sra. Ericka Ñanco",
+    "Distrito": "Distrito: N°23",
+    "Partido": "Partido: RD"
+  },
+  {
+    "Id": "1154",
+    "Name": "Sr. Mauricio Ojeda",
+    "Distrito": "Distrito: N°23",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "1057",
+    "Name": "Sra. Erika Olivera",
+    "Distrito": "Distrito: N°9",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "1058",
+    "Name": "Sra. Maite Orsini",
+    "Distrito": "Distrito: N°9",
+    "Partido": "Partido: RD"
+  },
+  {
+    "Id": "1059",
+    "Name": "Sra. Ximena Ossandón",
+    "Distrito": "Distrito: N°12",
+    "Partido": "Partido: RN"
+  },
+  {
+    "Id": "1155",
+    "Name": "Sr. Rubén Darío Oyarzo",
+    "Distrito": "Distrito: N°8",
+    "Partido": "Partido: PDG"
+  },
+  {
+    "Id": "1156",
+    "Name": "Sr. Hernán Palma",
+    "Distrito": "Distrito: N°12",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "1157",
+    "Name": "Sra. Marlene Pérez",
+    "Distrito": "Distrito: N°20",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "1062",
+    "Name": "Sra. Joanna Pérez",
+    "Distrito": "Distrito: N°21",
+    "Partido": "Partido: DC"
+  },
+  {
+    "Id": "1063",
+    "Name": "Sra. Catalina Pérez",
+    "Distrito": "Distrito: N°3",
+    "Partido": "Partido: RD"
+  },
+  {
+    "Id": "1158",
+    "Name": "Sr. Víctor Alejandro Pino",
+    "Distrito": "Distrito: N°5",
+    "Partido": "Partido: PDG"
+  },
+  {
+    "Id": "1159",
+    "Name": "Sra. Lorena Pizarro",
+    "Distrito": "Distrito: N°13",
+    "Partido": "Partido: PC"
+  },
+  {
+    "Id": "1160",
+    "Name": "Sra. Alejandra Placencia",
+    "Distrito": "Distrito: N°10",
+    "Partido": "Partido: PC"
+  },
+  {
+    "Id": "1161",
+    "Name": "Sr. Francisco Pulgar",
+    "Distrito": "Distrito: N°17",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "1065",
+    "Name": "Sr. Guillermo Ramírez",
+    "Distrito": "Distrito: N°11",
+    "Partido": "Partido: UDI"
+  },
+  {
+    "Id": "1162",
+    "Name": "Sr. Matías Ramírez",
+    "Distrito": "Distrito: N°2",
+    "Partido": "Partido: PC"
+  },
+  {
+    "Id": "1163",
+    "Name": "Sra. Marcia Raphael",
+    "Distrito": "Distrito: N°27",
+    "Partido": "Partido: RN"
+  },
+  {
+    "Id": "999",
+    "Name": "Sr. Jorge Rathgeb",
+    "Distrito": "Distrito: N°22",
+    "Partido": "Partido: RN"
+  },
+  {
+    "Id": "1067",
+    "Name": "Sr. Hugo Rey",
+    "Distrito": "Distrito: N°17",
+    "Partido": "Partido: RN"
+  },
+  {
+    "Id": "1164",
+    "Name": "Sra. Marcela Riquelme",
+    "Distrito": "Distrito: N°15",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "948",
+    "Name": "Sr. Gaspar Rivas",
+    "Distrito": "Distrito: N°6",
+    "Partido": "Partido: PDG"
+  },
+  {
+    "Id": "1068",
+    "Name": "Sra. Camila Rojas",
+    "Distrito": "Distrito: N°7",
+    "Partido": "Partido: COMUNES"
+  },
+  {
+    "Id": "1165",
+    "Name": "Sr. Agustín Romero",
+    "Distrito": "Distrito: N°8",
+    "Partido": "Partido: PREP"
+  },
+  {
+    "Id": "1069",
+    "Name": "Sr. Leonidas Romero",
+    "Distrito": "Distrito: N°20",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "1166",
+    "Name": "Sra. Natalia Romero",
+    "Distrito": "Distrito: N°15",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "1070",
+    "Name": "Sr. Patricio Rosas",
+    "Distrito": "Distrito: N°24",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "1167",
+    "Name": "Sr. Jaime Sáez",
+    "Distrito": "Distrito: N°26",
+    "Partido": "Partido: RD"
+  },
+  {
+    "Id": "1168",
+    "Name": "Sr. Jorge Saffirio",
+    "Distrito": "Distrito: N°22",
+    "Partido": "Partido: DC"
+  },
+  {
+    "Id": "1169",
+    "Name": "Sra. Clara Sagardia",
+    "Distrito": "Distrito: N°21",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "1170",
+    "Name": "Sr. Luis Sánchez",
+    "Distrito": "Distrito: N°7",
+    "Partido": "Partido: PREP"
+  },
+  {
+    "Id": "1073",
+    "Name": "Sr. Juan Santana",
+    "Distrito": "Distrito: N°4",
+    "Partido": "Partido: PS"
+  },
+  {
+    "Id": "1074",
+    "Name": "Sra. Marisela Santibáñez",
+    "Distrito": "Distrito: N°14",
+    "Partido": "Partido: PC"
+  },
+  {
+    "Id": "953",
+    "Name": "Sr. Frank Sauerbaum",
+    "Distrito": "Distrito: N°19",
+    "Partido": "Partido: RN"
+  },
+  {
+    "Id": "1075",
+    "Name": "Sr. Diego Schalper",
+    "Distrito": "Distrito: N°15",
+    "Partido": "Partido: RN"
+  },
+  {
+    "Id": "1171",
+    "Name": "Sra. Emilia Schneider",
+    "Distrito": "Distrito: N°10",
+    "Partido": "Partido: COMUNES"
+  },
+  {
+    "Id": "1172",
+    "Name": "Sr. Stephan Schubert",
+    "Distrito": "Distrito: N°23",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "1076",
+    "Name": "Sr. Alexis Sepúlveda",
+    "Distrito": "Distrito: N°17",
+    "Partido": "Partido: PR"
+  },
+  {
+    "Id": "1173",
+    "Name": "Sra. Daniela Serrano",
+    "Distrito": "Distrito: N°12",
+    "Partido": "Partido: PC"
+  },
+  {
+    "Id": "1002",
+    "Name": "Sr. Leonardo Soto",
+    "Distrito": "Distrito: N°14",
+    "Partido": "Partido: PS"
+  },
+  {
+    "Id": "1077",
+    "Name": "Sr. Raúl Soto",
+    "Distrito": "Distrito: N°15",
+    "Partido": "Partido: PPD"
+  },
+  {
+    "Id": "1174",
+    "Name": "Sr. Marco Antonio Sulantay",
+    "Distrito": "Distrito: N°5",
+    "Partido": "Partido: UDI"
+  },
+  {
+    "Id": "1175",
+    "Name": "Sr. Cristián Tapia",
+    "Distrito": "Distrito: N°4",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "1176",
+    "Name": "Sr. Hotuiti Teao",
+    "Distrito": "Distrito: N°7",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "1177",
+    "Name": "Sra. Carolina Tello",
+    "Distrito": "Distrito: N°5",
+    "Partido": "Partido: PC"
+  },
+  {
+    "Id": "1003",
+    "Name": "Sr. Renzo Trisotti",
+    "Distrito": "Distrito: N°2",
+    "Partido": "Partido: UDI"
+  },
+  {
+    "Id": "1178",
+    "Name": "Sr. Héctor Ulloa",
+    "Distrito": "Distrito: N°26",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "1081",
+    "Name": "Sr. Francisco Undurraga",
+    "Distrito": "Distrito: N°11",
+    "Partido": "Partido: EVOP"
+  },
+  {
+    "Id": "1179",
+    "Name": "Sr. Alberto Undurraga",
+    "Distrito": "Distrito: N°8",
+    "Partido": "Partido: DC"
+  },
+  {
+    "Id": "1082",
+    "Name": "Sr. Cristóbal Urruticoechea",
+    "Distrito": "Distrito: N°21",
+    "Partido": "Partido: PREP"
+  },
+  {
+    "Id": "1180",
+    "Name": "Sra. Consuelo Veloso",
+    "Distrito": "Distrito: N°18",
+    "Partido": "Partido: RD"
+  },
+  {
+    "Id": "1181",
+    "Name": "Sr. Nelson Venegas",
+    "Distrito": "Distrito: N°6",
+    "Partido": "Partido: PS"
+  },
+  {
+    "Id": "1182",
+    "Name": "Sr. Sebastián Videla",
+    "Distrito": "Distrito: N°3",
+    "Partido": "Partido: IND"
+  },
+  {
+    "Id": "917",
+    "Name": "Sr. Gastón Von Mühlenbrock",
+    "Distrito": "Distrito: N°24",
+    "Partido": "Partido: UDI"
+  },
+  {
+    "Id": "1183",
+    "Name": "Sra. Flor Weisse",
+    "Distrito": "Distrito: N°21",
+    "Partido": "Partido: UDI"
+  },
+  {
+    "Id": "1086",
+    "Name": "Sr. Gonzalo Winter",
+    "Distrito": "Distrito: N°10",
+    "Partido": "Partido: PCS"
+  },
+  {
+    "Id": "1087",
+    "Name": "Sra. Gael Yeomans",
+    "Distrito": "Distrito: N°13",
+    "Partido": "Partido: PCS"
+  }
+]
